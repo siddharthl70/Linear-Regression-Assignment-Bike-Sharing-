@@ -87,8 +87,8 @@ pip install pandas numpy scikit-learn matplotlib seaborn joblib
 
 ## Author
 **Siddharth Laskar**
-- LinkedIn: [Vivek Lalan](https://www.linkedin.com/in/siddharthlaskar/)
-- GitHub: [Vivek Lalan](https://github.com/siddharthlaskar)
+- LinkedIn: (https://www.linkedin.com/in/siddharthlaskar/)
+- GitHub: (https://github.com/siddharthl70/Linear-Regression-Assignment-Bike-Sharing-)
 
 ## License
 This project is open-source and available under the **MIT License**. Feel free to modify and use it as needed.
