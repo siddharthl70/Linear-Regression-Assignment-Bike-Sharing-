@@ -1,52 +1,95 @@
-# Project Name
-> Outline a brief description of your project.
+# Bike Demand Prediction Using Multiple Linear Regression
 
+## Overview
+This project aims to predict the demand for shared bikes using a multiple linear regression model. The dataset contains daily records of bike rentals and various influencing factors such as weather conditions, seasonality, and other environmental factors. By analyzing these factors, the model provides insights that can help optimize bike-sharing services.
 
-## Table of Contents
-* [General Info](#general-information)
-* [Technologies Used](#technologies-used)
-* [Conclusions](#conclusions)
-* [Acknowledgements](#acknowledgements)
+## Dataset
+The dataset used for this analysis is `day.csv`, which includes:
 
-<!-- You can include any other section that is pertinent to your problem -->
+- **cnt**: Total bike rentals (Target Variable)
+- **season**: Season of the year (`spring`, `summer`, `fall`, `winter`)
+- **yr**: Year (`0` for 2018, `1` for 2019)
+- **mnth**: Month of the year (`1` to `12`)
+- **holiday**: Whether the day is a holiday (`0`: No, `1`: Yes)
+- **weekday**: Day of the week (`0`: Sunday - `6`: Saturday)
+- **workingday**: Whether the day is a working day (`0`: No, `1`: Yes)
+- **weathersit**: Weather condition (`Clear`, `Mist + Cloudy`, `Light Snow/Rain`, `Heavy Rain`)
+- **temp**: Normalized temperature in Celsius
+- **hum**: Normalized humidity level
+- **windspeed**: Normalized wind speed
+- **casual**: Count of casual users
+- **registered**: Count of registered users
 
-## General Information
-- Provide general information about your project here.
-- What is the background of your project?
-- What is the business probem that your project is trying to solve?
-- What is the dataset that is being used?
+## Steps Involved
+### 1. Data Understanding & Preparation
+- Load and inspect the dataset.
+- Handle missing values and outliers if any.
+- Convert categorical variables into appropriate formats.
+- Create dummy variables for categorical data.
+- Remove irrelevant features that do not contribute significantly to the prediction.
 
-<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
+### 2. Exploratory Data Analysis (EDA)
+- Visualize distributions of numerical features using histograms.
+- Analyze correlations between features using heatmaps.
+- Compare bike demand across different seasons and weather conditions.
 
-## Conclusions
-- Conclusion 1 from the analysis
-- Conclusion 2 from the analysis
-- Conclusion 3 from the analysis
-- Conclusion 4 from the analysis
+### 3. Model Building
+- Split the data into training (`80%`) and testing (`20%`) sets.
+- Train a multiple linear regression model using `scikit-learn`.
+- Select the most significant features by analyzing **p-values** and **Variance Inflation Factor (VIF)**.
 
-<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
+### 4. Model Evaluation
+- Evaluate performance using the following metrics:
+  - **R-squared (R²)**: Measures the proportion of variance explained by the model.
+  - **Adjusted R-squared**: Accounts for the number of predictors in the model.
+  - **Mean Absolute Error (MAE)**: Measures the average absolute errors.
+  - **Mean Squared Error (MSE)**: Computes the average squared difference.
+  - **Root Mean Squared Error (RMSE)**: Square root of MSE, giving better interpretability.
+- Perform residual analysis to validate linear regression assumptions.
 
+### 5. Residual Analysis
+- Plot residual distributions to check normality.
+- Check for homoscedasticity by plotting residuals vs. predicted values.
+- Use the **Durbin-Watson test** to detect autocorrelation in residuals.
 
-## Technologies Used
-- library - version 1.0
-- library - version 2.0
-- library - version 3.0
+## Installation & Requirements
+To run this project, ensure you have the following libraries installed:
+```bash
+pip install pandas numpy scikit-learn matplotlib seaborn joblib
+```
 
-<!-- As the libraries versions keep on changing, it is recommended to mention the version of library used in this project -->
+## Running the Project
+1. Clone this repository using:
+   ```bash
+   git clone <repo-url>
+   ```
+2. Navigate to the project folder:
+   ```bash
+   cd bike-demand-prediction
+   ```
+3. Open the Jupyter Notebook `bike_demand_prediction.ipynb`.
+4. Run all the cells to train and evaluate the model.
 
-## Acknowledgements
-Give credit here.
-- This project was inspired by...
-- References if any...
-- This project was based on [this tutorial](https://www.example.com).
+## Results & Insights
+- The trained model provides insights into how different features impact bike demand.
+- **Key Findings:**
+  - Temperature and seasonality significantly impact demand.
+  - Holidays and working days show variations in bike usage patterns.
+  - Weather conditions such as heavy rain reduce demand significantly.
+- The model achieves an **R² score** of ~0.8, indicating a good fit.
+- Residual analysis confirms that the linear regression assumptions hold.
 
+## Future Improvements
+- Try **polynomial regression** to capture non-linear relationships.
+- Include additional external data like **special events** or **traffic patterns**.
+- Apply **feature engineering** to create interaction terms.
+- Experiment with other machine learning models like **decision trees** or **random forests**.
 
-## Contact
-Created by [@githubusername] - feel free to contact me!
+## Author
+**Siddharth Laskar**
+- LinkedIn: [Vivek Lalan](https://www.linkedin.com/in/siddharthlaskar/)
+- GitHub: [Vivek Lalan](https://github.com/siddharthlaskar)
 
+## License
+This project is open-source and available under the **MIT License**. Feel free to modify and use it as needed.
 
-<!-- Optional -->
-<!-- ## License -->
-<!-- This project is open source and available under the [... License](). -->
-
-<!-- You don't have to include all sections - just the one's relevant to your project -->
